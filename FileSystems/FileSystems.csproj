@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{30DD8332-FA7A-4BA5-BA90-879C9848CF57}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FileSystems</RootNamespace>
+    <AssemblyName>FileSystems</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;KFS_LEAN_AND_MEAN</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;KFS_LEAN_AND_MEAN</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Ionic.Zip, Version=1.9.1.5, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataStream\ArrayBackedStream.cs" />
+    <Compile Include="DataStream\FileDataStream.cs" />
+    <Compile Include="DataStream\ForensicsAppStream.cs" />
+    <Compile Include="DataStream\IDataStream.cs" />
+    <Compile Include="DataStream\SectorStream.cs" />
+    <Compile Include="DataStream\SubStream.cs" />
+    <Compile Include="DataStream\Util.cs" />
+    <Compile Include="FileSystem\FAT\FileAllocationTable.cs" />
+    <Compile Include="FileSystem\FAT\IFATNode.cs" />
+    <Compile Include="FileSystem\PathUtils.cs" />
+    <Compile Include="FileSystem\FileRecoveryStatus.cs" />
+    <Compile Include="Interface\IFileSystemNode.cs" />
+    <Compile Include="Interface\IRun.cs" />
+    <Compile Include="FileSystem\NTFS\SparseRun.cs" />
+    <Compile Include="Interface\DiskLoader.cs" />
+    <Compile Include="Disks\Attributes.cs" />
+    <Compile Include="Disks\Disk.cs" />
+    <Compile Include="Interface\IDescribable.cs" />
+    <Compile Include="Interface\IFile.cs" />
+    <Compile Include="Interface\IFileSystem.cs" />
+    <Compile Include="Interface\IFileSystemStore.cs" />
+    <Compile Include="Interface\IFolder.cs" />
+    <Compile Include="Interface\IHasSectors.cs" />
+    <Compile Include="Interface\IImageable.cs" />
+    <Compile Include="Disks\Image.cs" />
+    <Compile Include="Interface\INodeMetadata.cs" />
+    <Compile Include="Interface\IPhysicalDisk.cs" />
+    <Compile Include="Windows\WinLogicalDisk.cs" />
+    <Compile Include="Disks\LogicalDiskAttributes.cs" />
+    <Compile Include="Disks\MasterBootRecord.cs" />
+    <Compile Include="Disks\MasterBootRecordAttributes.cs" />
+    <Compile Include="Windows\WinPhysicalDisk.cs" />
+    <Compile Include="Disks\PhysicalDiskAttributes.cs" />
+    <Compile Include="Disks\PhysicalDiskPartition.cs" />
+    <Compile Include="Disks\PhysicalDiskPartitionAttributes.cs" />
+    <Compile Include="Disks\PhysicalDiskSection.cs" />
+    <Compile Include="Disks\UnallocatedDiskArea.cs" />
+    <Compile Include="Disks\UnallocatedDiskAreaAttributes.cs" />
+    <Compile Include="Interface\ILogicalDisk.cs" />
+    <Compile Include="Windows\Win32.cs" />
+    <Compile Include="Windows\WinDisk.cs" />
+    <Compile Include="Interface\Exceptions\FileSystemException.cs" />
+    <Compile Include="Interface\Exceptions\InvalidFileRecordException.cs" />
+    <Compile Include="Interface\Exceptions\NTFSException.cs" />
+    <Compile Include="Interface\Exceptions\NTFSFixupException.cs" />
+    <Compile Include="FileSystem\FAT\FileFAT.cs" />
+    <Compile Include="FileSystem\FAT\FileSystemFAT.cs" />
+    <Compile Include="FileSystem\FAT\FolderFAT.cs" />
+    <Compile Include="FileSystem\File.cs" />
+    <Compile Include="FileSystem\FAT\FileAttributesFAT.cs" />
+    <Compile Include="FileSystem\FileFromHostSystem.cs" />
+    <Compile Include="FileSystem\FileSystem.cs" />
+    <Compile Include="FileSystem\FileSystemNode.cs" />
+    <Compile Include="FileSystem\Folder.cs" />
+    <Compile Include="FileSystem\FolderMounted.cs" />
+    <Compile Include="FileSystem\NTFS\FileNTFS.cs" />
+    <Compile Include="FileSystem\NTFS\FileSystemNTFS.cs" />
+    <Compile Include="FileSystem\NTFS\FixupStream.cs" />
+    <Compile Include="FileSystem\NTFS\FolderNTFS.cs" />
+    <Compile Include="FileSystem\NTFS\HiddenDataStreamFileNTFS.cs" />
+    <Compile Include="FileSystem\NTFS\MFTAttribute.cs" />
+    <Compile Include="FileSystem\NTFS\MFTRecord.cs" />
+    <Compile Include="FileSystem\NTFS\NTFSDataRun.cs" />
+    <Compile Include="FileSystem\NTFS\NTFSFileStream.cs" />
+    <Compile Include="Interface\ISearchStrategy.cs" />
+    <Compile Include="FileSystem\SearchStrategy.cs" />
+    <Compile Include="Linux\LinDisk.cs" />
+    <Compile Include="Linux\LinDiskLoader.cs" />
+    <Compile Include="Linux\LinLogicalDisk.cs" />
+    <Compile Include="Linux\LinLogicalDiskAttributes.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Windows\WinDiskLoader.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="COPYING.txt" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
